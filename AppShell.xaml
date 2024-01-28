@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Kokboken.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Kokboken"
+    xmlns:views="clr-namespace:Kokboken.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Kokboken">
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:AddRecipe}"
+        Route="AddRecipe"/> 
+    <ShellContent
+        ContentTemplate="{DataTemplate views:ShowAllRecipes}"
+        Route="ShowAllRecipes"/> 
+    <ShellContent
+        ContentTemplate="{DataTemplate views:ShowSingleRecipe}"
+        Route="ShowSingleRecipe"/>  
+
+</Shell>

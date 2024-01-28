@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kokboken.Views.AddRecipe"
+             Title="AddRecipe" 
+             BackgroundImageSource="background.jpg">
+    
+        <!--Padding="Vänster, Upp, Höger, Ner"-->
+
+    <StackLayout Margin="5">
+        <StackLayout HorizontalOptions="StartAndExpand" Padding="5,0,0,5">
+            <Label Text="Titel" FontSize="20" />
+            <Entry x:Name="AddTitle" Text="" HeightRequest="50" WidthRequest="200" VerticalOptions="Start"
+           HorizontalOptions="Start" BackgroundColor="Teal" Opacity="0.8" TextColor="Black" FontSize="25"/>
+        </StackLayout>
+        <HorizontalStackLayout Margin="5,0,0,0">
+            <Label Text="Ingredienser" HorizontalOptions="Start" FontSize="20"/>
+            <Label Text="Beskrivning" Padding="188,0,0,0" HorizontalOptions="Start" FontSize="20"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout  Padding="5,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" Opacity="0.7">
+
+            <Editor x:Name="AddIngr" Text="" HeightRequest="450" WidthRequest="300" 
+                  BackgroundColor="PaleTurquoise" TextColor="Black" FontSize="25"/>
+
+            <Editor x:Name="AddDesc" Text="" HeightRequest="450" WidthRequest="600" 
+                  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" BackgroundColor="PaleTurquoise" TextColor="Black"
+                  FontSize="25" Margin="5,0,10,0"/>
+            <VerticalStackLayout>
+                <VerticalStackLayout RadioButtonGroup.GroupName="enSpeed" x:Name="Testis"  Padding="5,9,0,0" BackgroundColor="MediumPurple"
+                      HeightRequest="220" WidthRequest="250" VerticalOptions="Start">
+                    
+                    <Label Text="Hastighet" Padding="0,5,0,5" FontSize="20"/>
+                    <RadioButton Content="Turbo" IsChecked="False" x:Name="AddSpeedTurbo"/>
+                    <RadioButton Content="Snabb" IsChecked="False" x:Name="AddSpeedSnabb"/>
+                    <RadioButton Content="Medium" IsChecked="False" x:Name="AddSpeedMedium"/>
+                    <RadioButton Content="Långkok" IsChecked="False" x:Name="AddSpeedLångkok"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout RadioButtonGroup.GroupName="enDifficulty" Padding="0,5,0,0" BackgroundColor="MediumPurple"
+                      HeightRequest="200" WidthRequest="250" VerticalOptions="Start">
+
+                    <Label Text="Svårighet" Padding="0,5,0,5" FontSize="20" RadioButtonGroup.SelectedValue=""/>
+                    <RadioButton Content="Enkel" IsChecked="False" x:Name="AddDiffEnkel" />
+                    <RadioButton Content="Medium" IsChecked="False" x:Name="AddDiffMedium"/>
+                    <RadioButton Content="Komplicerad" IsChecked="False" x:Name="AddDiffKomplicerad"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="End" Margin="5" Padding="0,10,0,10">
+            <Button Text="Huvudmeny" Clicked="MainMenu_Button"  WidthRequest="150" HorizontalOptions="Start"/>
+            <Button Text="Spara recept" Clicked="SaveRecipe_Button" WidthRequest="150" HorizontalOptions="Start" Margin="20,0,0,0" />
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>

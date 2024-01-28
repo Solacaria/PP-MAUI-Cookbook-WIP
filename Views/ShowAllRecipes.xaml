@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kokboken.Views.ShowAllRecipes"
+             Title="ShowAllRecipes">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+        Text="Du är nu i ShowAllRecipes"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+            <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="End" HorizontalOptions="Start"/>
+            <ListView x:Name="GroupedRecipes" IsGroupingEnabled="true" HasUnevenRows="true">
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="Center">
+                                <Label Text="Recept" TextColor="GhostWhite" BackgroundColor="DarkGoldenrod"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Title, StringFormat='Maträtt: {0}'}" FontSize="25" TextColor="FloralWhite" 
+                               HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+                                <Label Text="{Binding enDiff, StringFormat='Svårighet: {0}'}" FontSize="15" TextColor="NavajoWhite" />
+                                <Label Text="{Binding enSpeed, StringFormat='Snabbhet: {0}'}" FontSize="15" TextColor="NavajoWhite" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

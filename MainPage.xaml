@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kokboken.MainPage"
+             BackgroundImageSource="background.jpg"
+             >
+
+ 
+    <StackLayout VerticalOptions="Center" Padding="10">
+        <Label />
+        <StackLayout Padding="30">
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Button x:Name="rnd_recipe" BackgroundColor="LightSeaGreen" Text="Slumpa Recept" Clicked="rnd_recipe_Clicked"
+                    WidthRequest="200"  Margin="25" FontSize="20"/>
+            <Button x:Name="add_recipe" BackgroundColor="LightSeaGreen" Text="Lägg till Recept" Clicked="add_recipe_Clicked"
+                    WidthRequest="200" Margin="25" FontSize="20"/>
+            <Button x:Name="show_recipe" BackgroundColor="LightSeaGreen" Text="Visa alla Recept" Clicked="show_recipe_Clicked" 
+                    WidthRequest="200" Margin="25" FontSize="20"/>
+            <Button x:Name="rmv_recipe" BackgroundColor="LightSeaGreen" Text="Ta bort Recept" Clicked="rmv_recipe_Clicked"
+                    WidthRequest="200" Margin="25" FontSize="20"/>
+            <Button x:Name="exit" BackgroundColor="LightSeaGreen" Text="Avlusta Program" Clicked="exit_Clicked" 
+                    WidthRequest="200" Margin="25" FontSize="20"/>
+        </StackLayout>
+    </StackLayout>
+ 
+
+</ContentPage>
