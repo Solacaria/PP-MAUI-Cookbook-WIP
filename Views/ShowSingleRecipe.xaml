@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Kokboken.Views.ShowSingleRecipe"
-             Title="ShowSingleRecipe">
-    <VerticalStackLayout>
-        <Label 
-            Text="Du är nu i ShowSingleRecipe"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="End" HorizontalOptions="Start"/>
-    </VerticalStackLayout>
+             x:Class="Kokboken.Views.ShowSingleRecipe">
+    <!--Padding="Vänster, Upp, Höger, Ner"-->
+    <ScrollView>
+        <VerticalStackLayout>
+            <ListView x:Name="SingleRecipePage" IsGroupingEnabled="True" HasUnevenRows="true">
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--Only here to avoid visual glitches-->
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0,0,0,8" >
+                                <Label x:Name="lblTitle" HorizontalOptions="Center" 
+                                       Text="{Binding Title}" 
+                                       FontSize="25" TextColor="Aqua"/>
+                                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="5,0,10,0" >
+                                    <Label x:Name="lblIngr" Text="{Binding Ingredients}" FontSize="20" HorizontalOptions="Start" WidthRequest="200" TextColor="GhostWhite"
+                                           BackgroundColor="Black" Opacity="0.7"/>
+                                    <Label x:Name="lblDesc" Text="{Binding Description}" FontSize="20" HorizontalOptions="End" Margin="10,0,0,0" TextColor="GhostWhite"
+                                           BackgroundColor="Black" Opacity="0.7"/>
+                                    
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" 
+                    VerticalOptions="End" HorizontalOptions="Start"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

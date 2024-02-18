@@ -1,6 +1,7 @@
 ﻿using Kokboken.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -11,6 +12,7 @@ namespace Kokboken.Globals
     
     public class Global
     {
+      
         public Global(){ }
 
         private static Lazy<Global> _instance = new Lazy<Global>(() => new Global());
@@ -18,6 +20,23 @@ namespace Kokboken.Globals
         public List<Recipes> recipes {  get; set; } = new List<Recipes>();
         private string _fileName = "Receptlista.json";
 
+        public List<Recipes> rndRecipe = new List<Recipes>(); // Holds the current randomized recipe
+
+        /// <summary>
+        /// Randomizes a recipe from saved recipes in list.
+        /// </summary>
+        /// <returns></returns>
+        public static void RandomRecipe()
+        {
+            if (Data.rndRecipe.Count > 0)
+            {
+                Data.rndRecipe.Remove(Data.rndRecipe[0]);
+            }
+            var rnd = new Random();
+            int idx = rnd.Next(0, Data.recipes.Count);
+            var randomizedRecipe = Data.recipes[idx];
+            Data.rndRecipe.Add(randomizedRecipe);
+        }
         public static void SerilizeJson()
         {
             using (Stream s = File.Create(fname(Data._fileName)))

@@ -34,20 +34,18 @@ namespace Kokboken
 
         private async void rnd_recipe_Clicked(object sender, EventArgs e)
         {
-            //TODO se till att den först visar ett slumpat recept, därpå frågar användaren med en DisplayAlert om man vill gå till recept, isf kör GoToAsync
-            var recept = Global.Data.recipes;
-            var rnd = new Random();
-            int idx = rnd.Next(0, recept.Count);
-            var recipe = recept[idx];
+            SlumpasIgen:
+            Global.RandomRecipe();
+            string result = await ShowRandomizedRecipe();
 
-            string dictName = "SlumpRecipe";
-            IDictionary<string, Recipes> newRandom = new Dictionary<string, Recipes>();
-            newRandom[dictName] = recipe;
-
-            string result = await DisplayActionSheet($"{recipe.Title}\nVill du gå till receptet?", "Avbryt",  null, "Ja");
-            if (result == "Ja") await Shell.Current.GoToAsync("//ShowSingleRecipe", newRandom);
+            if (result == "Ja") await Shell.Current.GoToAsync("//ShowSingleRecipe");
+            if (result == "Slumpa igen") goto SlumpasIgen;
             return;
-
+        }
+        private async Task<string> ShowRandomizedRecipe()
+        {
+            string result = await DisplayActionSheet($"{Global.Data.rndRecipe[0].Title}\nVill du gå till receptet?", "Avbryt",null,  "Slumpa igen", "Ja");
+            return result;
         }
     }
 
