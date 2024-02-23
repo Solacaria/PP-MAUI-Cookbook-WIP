@@ -29,4 +29,10 @@ public partial class ShowSingleRecipe : ContentPage
     {
 		await Shell.Current.GoToAsync("//MainPage");
     }
+
+    private void Button_Clicked_1(object sender, EventArgs e)
+    {
+        Global.RandomRecipe();
+        this.OnAppearing();
+    }
 }

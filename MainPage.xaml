@@ -21,7 +21,7 @@
                     WidthRequest="200" Margin="25" FontSize="20"/>
             <Button x:Name="show_recipe" BackgroundColor="LightSeaGreen" Text="Visa alla Recept" Clicked="show_recipe_Clicked" 
                     WidthRequest="200" Margin="25" FontSize="20"/>
-            <Button x:Name="rmv_recipe" BackgroundColor="LightSeaGreen" Text="Ta bort Recept" Clicked="rmv_recipe_Clicked"
+            <Button x:Name="rmv_recipe" BackgroundColor="LightSeaGreen" Text="Ta bort Recept (WIP)" Clicked="rmv_recipe_Clicked"
                     WidthRequest="200" Margin="25" FontSize="20"/>
             <Button x:Name="exit" BackgroundColor="LightSeaGreen" Text="Avsluta Program" Clicked="exit_Clicked" 
                     WidthRequest="200" Margin="25" FontSize="20"/>

@@ -7,7 +7,7 @@
     
         <!--Padding="Vänster, Upp, Höger, Ner"-->
 
-    <StackLayout Margin="5">
+    <VerticalStackLayout Margin="5">
         <StackLayout HorizontalOptions="StartAndExpand" Padding="5,0,0,5">
             <Label Text="Titel" FontSize="20" />
             <Entry x:Name="AddTitle" Text="" HeightRequest="50" WidthRequest="200" VerticalOptions="Start"
@@ -50,5 +50,5 @@
             <Button Text="Huvudmeny" Clicked="MainMenu_Button"  WidthRequest="150" HorizontalOptions="Start"/>
             <Button Text="Spara recept" Clicked="SaveRecipe_Button" WidthRequest="150" HorizontalOptions="Start" Margin="20,0,0,0" />
         </HorizontalStackLayout>
-    </StackLayout>
+    </VerticalStackLayout>
 </ContentPage>

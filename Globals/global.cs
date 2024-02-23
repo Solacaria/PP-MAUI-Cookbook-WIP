@@ -12,14 +12,11 @@ namespace Kokboken.Globals
     
     public class Global
     {
-      
         public Global(){ }
-
         private static Lazy<Global> _instance = new Lazy<Global>(() => new Global());
         public static Global Data => _instance.Value;
         public List<Recipes> recipes {  get; set; } = new List<Recipes>();
         private string _fileName = "Receptlista.json";
-
         public List<Recipes> rndRecipe = new List<Recipes>(); // Holds the current randomized recipe
 
         /// <summary>
@@ -35,7 +32,7 @@ namespace Kokboken.Globals
             var rnd = new Random();
             int idx = rnd.Next(0, Data.recipes.Count);
             var randomizedRecipe = Data.recipes[idx];
-            Data.rndRecipe.Add(randomizedRecipe);
+            Data.rndRecipe.Add(randomizedRecipe);   
         }
         public static void SerilizeJson()
         {
