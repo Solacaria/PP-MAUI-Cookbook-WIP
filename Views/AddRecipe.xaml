@@ -26,8 +26,7 @@
                   HorizontalOptions="CenterAndExpand" VerticalOptions="Start" BackgroundColor="PaleTurquoise" TextColor="Black"
                   FontSize="25" Margin="5,0,10,0"/>
             <VerticalStackLayout>
-                <VerticalStackLayout RadioButtonGroup.GroupName="enSpeed" x:Name="Testis"  Padding="5,9,0,0" BackgroundColor="MediumPurple"
-                      HeightRequest="220" WidthRequest="250" VerticalOptions="Start">
+                <VerticalStackLayout Padding="5,9,0,0" BackgroundColor="MediumPurple" HeightRequest="220" WidthRequest="250" VerticalOptions="Start">
                     
                     <Label Text="Hastighet" Padding="0,5,0,5" FontSize="20"/>
                     <RadioButton Content="Turbo" IsChecked="False" x:Name="AddSpeedTurbo"/>
@@ -36,8 +35,7 @@
                     <RadioButton Content="Långkok" IsChecked="False" x:Name="AddSpeedLångkok"/>
                 </VerticalStackLayout>
 
-                <VerticalStackLayout RadioButtonGroup.GroupName="enDifficulty" Padding="0,5,0,0" BackgroundColor="MediumPurple"
-                      HeightRequest="200" WidthRequest="250" VerticalOptions="Start">
+                <VerticalStackLayout Padding="0,5,0,0" BackgroundColor="MediumPurple" HeightRequest="200" WidthRequest="250" VerticalOptions="Start">
 
                     <Label Text="Svårighet" Padding="0,5,0,5" FontSize="20" RadioButtonGroup.SelectedValue=""/>
                     <RadioButton Content="Enkel" IsChecked="False" x:Name="AddDiffEnkel" />

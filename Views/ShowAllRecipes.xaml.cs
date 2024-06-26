@@ -42,6 +42,7 @@ public partial class ShowAllRecipes : ContentPage
             //Checks to see if the rndRecipe has an object or not. Using same View as random recipe for simplicity sake
             if (Global.Data.rndRecipe.Count > 0)
             {
+                //Sets the random recipe holder to the clicked recipe.
                 Global.Data.rndRecipe.Remove(Global.Data.rndRecipe[0]);
             }
             Global.Data.rndRecipe.Add(recipes[0]);

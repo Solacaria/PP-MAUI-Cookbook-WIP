@@ -19,6 +19,9 @@
         Route="ShowAllRecipes"/> 
     <ShellContent
         ContentTemplate="{DataTemplate views:ShowSingleRecipe}"
-        Route="ShowSingleRecipe"/>  
+        Route="ShowSingleRecipe"/>
+    <ShellContent 
+        ContentTemplate="{DataTemplate views:EditRecipe}"
+        Route="EditRecipe" />
 
 </Shell>

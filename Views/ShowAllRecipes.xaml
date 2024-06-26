@@ -23,15 +23,15 @@
                                 <VerticalStackLayout>
                                     <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center" >
                                         <Label Text="Maträtt:" FontSize="25" TextColor="FloralWhite" HorizontalOptions="Start"/>
-                                        <Label Text="{Binding Title}" FontSize="25" TextColor="FloralWhite"/>
+                                        <Label Text="{Binding Title} " FontSize="25" TextColor="FloralWhite"/>
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center">
                                         <Label Text="Svårighet:" FontSize="20" TextColor="NavajoWhite"/>
-                                        <Label Text="{Binding enDiff}" FontSize="20" TextColor="NavajoWhite" />
+                                        <Label Text="{Binding enDiff} " FontSize="20" TextColor="NavajoWhite" />
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center" >
                                         <Label Text="Snabbhet:" FontSize="20" TextColor="NavajoWhite"/>
-                                        <Label Text="{Binding enSpeed}" FontSize="20" TextColor="NavajoWhite" />
+                                        <Label Text="{Binding enSpeed} " FontSize="20" TextColor="NavajoWhite" />
                                     </HorizontalStackLayout>
                                 </VerticalStackLayout>
                             </ViewCell>

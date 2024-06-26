@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kokboken.Views.EditRecipe"
+             Title="EditRecipe">
+    <!--Padding="Vänster, Upp, Höger, Ner"-->
+
+    <VerticalStackLayout Margin="5" x:Name="EditRecipePage">
+        <StackLayout>
+            <Label Text="Title" FontSize="20"/>
+            <Entry x:Name="EditTtile" Text="{Binding Title}" HeightRequest="50" WidthRequest="300" VerticalOptions="Start"
+                   HorizontalOptions="Start" BackgroundColor="Teal" Opacity="0.8" TextColor="Black" FontSize="25"/>
+        </StackLayout>
+        <HorizontalStackLayout Margin="5,0,0,0">
+            <Label Text="Ingredienser" HorizontalOptions="Start" FontSize="20"/>
+            <Label Text="Beskrivning" HorizontalOptions="Start" FontSize="20"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Padding="5,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" Opacity="0.8">
+            <Editor x:Name="EditIngr" Text="{Binding Ingredients}" HeightRequest="450" WidthRequest="300"
+                    BackgroundColor="PaleTurquoise" TextColor="Black" FontSize="25"/>
+
+            <Editor x:Name="EditDesc" Text="{Binding Description}" HeightRequest="450" WidthRequest="600"
+                    BackgroundColor="PaleTurquoise" TextColor="Black" FontSize="25" Margin="5,0,10,0"/>
+
+            <VerticalStackLayout>
+                <VerticalStackLayout Padding="5,9,0,0" BackgroundColor="MediumPurple" HeightRequest="220" WidthRequest="250" VerticalOptions="Start">
+
+                    <Label Text="Hastighet" Padding="0,5,0,5" FontSize="20"/>
+                    <RadioButton Content="Turbo" IsChecked="False" x:Name="EditSpeedTurbo"/>
+                    <RadioButton Content="Snabb" IsChecked="False" x:Name="EditSpeedSnabb"/>
+                    <RadioButton Content="Medium" IsChecked="False" x:Name="EditSpeedMedium"/>
+                    <RadioButton Content="Långkok" IsChecked="False" x:Name="EditSpeedLångkok"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Padding="0,5,0,0" BackgroundColor="MediumPurple" HeightRequest="200" WidthRequest="250" VerticalOptions="Start">
+
+                    <Label Text="Svårighet" Padding="0,5,0,5" FontSize="20" />
+                    <RadioButton Content="Enkel" IsChecked="False" x:Name="EditDiffEnkel" />
+                    <RadioButton Content="Medium" IsChecked="False" x:Name="EditDiffMedium"/>
+                    <RadioButton Content="Komplicerad" IsChecked="False" x:Name="EditDiffKomplicerad"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="End" Margin="5" Padding="0,10,0,10">
+            <Button Text="Huvudmeny" Clicked="MainMenu_Button"  WidthRequest="150" HorizontalOptions="Start"/>
+            <Button Text="Spara ändringar" Clicked="SaveRecipe_Button" WidthRequest="150" HorizontalOptions="Start" Margin="20,0,0,0" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -12,6 +12,11 @@
                     <Button Text="Slumpa recept" Clicked="Button_Clicked_1" WidthRequest="150"
                             VerticalOptions="End" HorizontalOptions="Start"/>
                 </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="25,0,0,0">
+                    <Button Text="Redigera recept" Clicked="Button_Clicked_2" WidthRequest="150"
+                            VerticalOptions="End" HorizontalOptions="Center" />
+                </HorizontalStackLayout>
+               
             </HorizontalStackLayout>
             <ListView x:Name="SingleRecipePage" IsGroupingEnabled="True" HasUnevenRows="true">
                 <ListView.GroupHeaderTemplate>
@@ -28,7 +33,7 @@
                                 <Label HorizontalOptions="Center" 
                                        Text="{Binding Title}" 
                                        FontSize="25" TextColor="Aqua"/>
-                                <VerticalStackLayout Margin="5" HorizontalOptions="Start">
+                                <VerticalStackLayout Margin="5" HorizontalOptions="Start" BackgroundColor="Black" Opacity="0.9">
                                     <HorizontalStackLayout Padding="5">
                                         <Label Text="Hastighet:" FontSize="15" TextColor="NavajoWhite"/>
                                         <Label Text="{Binding enSpeed}" FontSize="15" TextColor="NavajoWhite"/>
@@ -41,9 +46,9 @@
                                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="5,0,10,0" >
                                    
                                     <Label  Text="{Binding Ingredients}" FontSize="20" HorizontalOptions="Start" WidthRequest="200" TextColor="GhostWhite"
-                                           BackgroundColor="Black" Opacity="0.7"/>
+                                           BackgroundColor="Black" Opacity="0.9"/>
                                     <Label  Text="{Binding Description}" FontSize="20" HorizontalOptions="End" Margin="10,0,0,0" TextColor="GhostWhite"
-                                           BackgroundColor="Black" Opacity="0.7"/>
+                                           BackgroundColor="Black" Opacity="0.9"/>
                                     
                                 </HorizontalStackLayout>
                             </StackLayout>

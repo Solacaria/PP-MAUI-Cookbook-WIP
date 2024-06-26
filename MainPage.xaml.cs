@@ -19,7 +19,7 @@ namespace Kokboken
 
         private async void rmv_recipe_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//RemoveRecipe");
+           // await Shell.Current.GoToAsync("//RemoveRecipe");
         }
 
         private async void show_recipe_Clicked(object sender, EventArgs e)
