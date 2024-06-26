@@ -8,7 +8,7 @@
     <VerticalStackLayout Margin="5" x:Name="EditRecipePage">
         <StackLayout>
             <Label Text="Title" FontSize="20"/>
-            <Entry x:Name="EditTtile" Text="{Binding Title}" HeightRequest="50" WidthRequest="300" VerticalOptions="Start"
+            <Entry x:Name="EditTitle" Text="{Binding Title}" HeightRequest="50" WidthRequest="300" VerticalOptions="Start"
                    HorizontalOptions="Start" BackgroundColor="Teal" Opacity="0.8" TextColor="Black" FontSize="25"/>
         </StackLayout>
         <HorizontalStackLayout Margin="5,0,0,0">

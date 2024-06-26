@@ -31,6 +31,41 @@ public partial class EditRecipe : ContentPage
 
     private async void SaveRecipe_Button(object sender, EventArgs e)
     {
+        if (EditIngr.Text == "")
+        {
+            await DisplayAlert("Tomt fält", "Ingredienslistan är tom", "OK");
+            return;
+        }
+        if (EditDesc.Text == "")
+        {
+            await DisplayAlert("Tomt fält", "Beskrivningen är tom", "OK");
+            return;
+        }
+        if (EditTitle.Text == "")
+        {
+            await DisplayAlert("Tomt fält", "Titeln är tom", "OK");
+            return;
+        }
+
+        //methods to check the radio buttons and get value.
+        enSpeedDish? newSpeed = NewSpeedEnum();
+        if (newSpeed == null)
+        {
+            await DisplayAlert("Tomt fält", "Hastighet är tom", "OK");
+            return;
+        }
+        enDifficultyDish? newDiff = NewDiffEnum();
+        if (newDiff == null)
+        {
+            await DisplayAlert("Tomt fält", "Svårighetsgrad är tom", "OK");
+            return;
+        }
+
+        //new values
+        string newTitle = EditTitle.Text;
+        string newDesc = EditDesc.Text;
+        string newIngr = EditIngr.Text;
+
         int idx = 0;
         int nrRecipes = Global.Data.recipes.Count;
         var currentRecipe = Global.Data.rndRecipe[0];
@@ -46,15 +81,7 @@ public partial class EditRecipe : ContentPage
         //recipe to be changed.
         var oldRecipe = Global.Data.recipes[idx];
 
-        //new values
-        string newTitle = EditTtile.Text;
-        string newDesc = EditDesc.Text;
-        string newIngr = EditIngr.Text;
-        //methods to check the radio buttons and get value.
-        enSpeedDish? newSpeed = NewSpeedEnum(); 
-        enDifficultyDish? newDiff = NewDiffEnum();
-
-        //sets the new value.
+        //sets the new values.
         oldRecipe.Title = newTitle;
         oldRecipe.Description = newDesc;
         oldRecipe.Ingredients = newIngr;

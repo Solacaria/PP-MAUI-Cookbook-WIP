@@ -49,6 +49,7 @@ public partial class AddRecipe : ContentPage
         
         await DisplayAlert("Nytt Recept", $"{newRecipe.Title} sparad", "OK");
         Global.SerilizeJson();
+
         await Shell.Current.GoToAsync("//MainPage");
 
     }
