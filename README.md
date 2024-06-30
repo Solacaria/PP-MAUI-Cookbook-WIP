@@ -16,7 +16,11 @@
 <ul>
   <li>Add a search feature</li>
   <li>Add a "remove recipe" function</li>
-  <li>Add a "Edit recipe" function</li>
   <li>Make it not look bad</li>
   <li>Sign in via gmail? Save recipes on cloud? </li>
+</ul>
+
+<h2>Fixed</h2>
+<ul>
+  <li>26/6/2024 - Added "edit recipe" function.</li>
 </ul>
