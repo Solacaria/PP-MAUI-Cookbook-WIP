@@ -4,29 +4,22 @@
              x:Class="Kokboken.MainPage"
              BackgroundImageSource="background.jpg"
              >
-
- 
-    <StackLayout VerticalOptions="Center" Padding="10">
-        <Label />
-        <StackLayout Padding="30">
-            <Label/>
-            <Label/>
-            <Label/>
-            <Label/>
-            <Label/>
-            <Label/>
-            <Button x:Name="rnd_recipe" BackgroundColor="LightSeaGreen" Text="Slumpa Recept" Clicked="rnd_recipe_Clicked"
-                    WidthRequest="200"  Margin="25" FontSize="20"/>
-            <Button x:Name="add_recipe" BackgroundColor="LightSeaGreen" Text="Lägg till Recept" Clicked="add_recipe_Clicked"
-                    WidthRequest="200" Margin="25" FontSize="20"/>
-            <Button x:Name="show_recipe" BackgroundColor="LightSeaGreen" Text="Visa alla Recept" Clicked="show_recipe_Clicked" 
-                    WidthRequest="200" Margin="25" FontSize="20"/>
-            <Button x:Name="rmv_recipe" BackgroundColor="LightSeaGreen" Text="Ta bort Recept (WIP)" Clicked="rmv_recipe_Clicked"
-                    WidthRequest="200" Margin="25" FontSize="20"/>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="30" Margin="0,150,0,0">
+        <HorizontalStackLayout>
+                <Button x:Name="rnd_recipe" BackgroundColor="LightSeaGreen" Text="Slumpa Recept" Clicked="rnd_recipe_Clicked"
+                        WidthRequest="200"  Margin="25" FontSize="20" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Button x:Name="add_recipe" BackgroundColor="LightSeaGreen" Text="Lägg till Recept" Clicked="add_recipe_Clicked"
+                        WidthRequest="200" Margin="25" FontSize="20" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Button x:Name="show_recipe" BackgroundColor="LightSeaGreen" Text="Visa alla Recept" Clicked="show_recipe_Clicked" 
+                        WidthRequest="200" Margin="25" FontSize="20" />
+            </HorizontalStackLayout>
+        <HorizontalStackLayout>
             <Button x:Name="exit" BackgroundColor="LightSeaGreen" Text="Avsluta Program" Clicked="exit_Clicked" 
-                    WidthRequest="200" Margin="25" FontSize="20"/>
-        </StackLayout>
+                        WidthRequest="200" Margin="25" FontSize="20" />
+        </HorizontalStackLayout>
     </StackLayout>
- 
-
 </ContentPage>

@@ -15,7 +15,7 @@
             <Label Text="Ingredienser" HorizontalOptions="Start" FontSize="20"/>
             <Label Text="Beskrivning" HorizontalOptions="Start" FontSize="20"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout Padding="5,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" Opacity="0.8">
+        <HorizontalStackLayout Padding="5,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" Opacity="0.8" >
             <Editor x:Name="EditIngr" Text="{Binding Ingredients}" HeightRequest="450" WidthRequest="300"
                     BackgroundColor="PaleTurquoise" TextColor="Black" FontSize="25"/>
 
@@ -40,7 +40,11 @@
                     <RadioButton Content="Komplicerad" IsChecked="False" x:Name="EditDiffKomplicerad"/>
                 </VerticalStackLayout>
             </VerticalStackLayout>
-
+            <VerticalStackLayout Margin="5,0,0,0">
+                <Label Text="Taggar" BackgroundColor="Black" HorizontalTextAlignment="Center" Opacity="0.9" Padding="0,0,0,5" FontSize="20" TextColor="NavajoWhite"/>
+                <Editor x:Name="EditTag" BackgroundColor="Black" Opacity="0.8" Text="{Binding TagString}"
+                MinimumWidthRequest="250" MinimumHeightRequest="250"/>
+            </VerticalStackLayout>
         </HorizontalStackLayout>
         <HorizontalStackLayout VerticalOptions="End" Margin="5" Padding="0,10,0,10">
             <Button Text="Huvudmeny" Clicked="MainMenu_Button"  WidthRequest="150" HorizontalOptions="Start"/>

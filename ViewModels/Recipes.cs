@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,9 @@ namespace Kokboken.ViewModels
         private string _title;
         private string _description;
         private string _ingredients;
-    
+        public List<string> Tags { get; set; } = new List<string>();
+        public string TagString { get; set; } = null;
+       
         public string Title
         {
             get { return _title; }
@@ -52,6 +55,7 @@ namespace Kokboken.ViewModels
                 }
             }
         }
+    
         public enDifficultyDish? enDiff {  get; set; }   
         public enSpeedDish? enSpeed {  get; set; }
 
@@ -61,7 +65,6 @@ namespace Kokboken.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(pName));
         }
         public override string ToString() => $"{Title}";
-
     }
     
 }

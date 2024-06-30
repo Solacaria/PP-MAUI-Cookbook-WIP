@@ -27,21 +27,27 @@
                   FontSize="25" Margin="5,0,10,0"/>
             <VerticalStackLayout>
                 <VerticalStackLayout Padding="5,9,0,0" BackgroundColor="MediumPurple" HeightRequest="220" WidthRequest="250" VerticalOptions="Start">
-                    
+
                     <Label Text="Hastighet" Padding="0,5,0,5" FontSize="20"/>
-                    <RadioButton Content="Turbo" IsChecked="False" x:Name="AddSpeedTurbo"/>
-                    <RadioButton Content="Snabb" IsChecked="False" x:Name="AddSpeedSnabb"/>
-                    <RadioButton Content="Medium" IsChecked="False" x:Name="AddSpeedMedium"/>
-                    <RadioButton Content="Långkok" IsChecked="False" x:Name="AddSpeedLångkok"/>
+                    <RadioButton Content="Turbo" IsChecked="False" x:Name="AddSpeedTurbo" />
+                    <RadioButton Content="Snabb" IsChecked="False" x:Name="AddSpeedSnabb" />
+                    <RadioButton Content="Medium" IsChecked="False" x:Name="AddSpeedMedium" />
+                    <RadioButton Content="Långkok" IsChecked="False" x:Name="AddSpeedLångkok" />
                 </VerticalStackLayout>
 
-                <VerticalStackLayout Padding="0,5,0,0" BackgroundColor="MediumPurple" HeightRequest="200" WidthRequest="250" VerticalOptions="Start">
+                <VerticalStackLayout Padding="0,5,0,0" BackgroundColor="MediumPurple" HeightRequest="200" WidthRequest="250" VerticalOptions="Start" >
 
                     <Label Text="Svårighet" Padding="0,5,0,5" FontSize="20" RadioButtonGroup.SelectedValue=""/>
                     <RadioButton Content="Enkel" IsChecked="False" x:Name="AddDiffEnkel" />
                     <RadioButton Content="Medium" IsChecked="False" x:Name="AddDiffMedium"/>
                     <RadioButton Content="Komplicerad" IsChecked="False" x:Name="AddDiffKomplicerad"/>
                 </VerticalStackLayout>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout Margin="5,0,0,0">
+                <Label Text="Taggar" BackgroundColor="Black" HorizontalTextAlignment="Center" Opacity="0.9" Padding="0,0,0,5" FontSize="20" TextColor="NavajoWhite"/>
+                <Editor Placeholder="Skriv taggar här" x:Name="AddTag" BackgroundColor="Black" Opacity="0.8" 
+                        MinimumWidthRequest="250" MinimumHeightRequest="250"/>
             </VerticalStackLayout>
         </HorizontalStackLayout>
         <HorizontalStackLayout VerticalOptions="End" Margin="5" Padding="0,10,0,10">

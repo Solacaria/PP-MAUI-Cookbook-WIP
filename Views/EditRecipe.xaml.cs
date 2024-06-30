@@ -20,8 +20,12 @@ public partial class EditRecipe : ContentPage
     {
         base.OnAppearing();
         BackgroundImageSource = "background.jpg";
-
+        
         var recept = Global.Data.rndRecipe[0];
+
+        recept.TagString = TagsToString(recept);
+        CheckRadioButtons(recept);
+       
         EditRecipePage.BindingContext = recept;
     }
     private async void MainMenu_Button(object sender, EventArgs e)
@@ -65,6 +69,7 @@ public partial class EditRecipe : ContentPage
         string newTitle = EditTitle.Text;
         string newDesc = EditDesc.Text;
         string newIngr = EditIngr.Text;
+        var newTag = NewTagChecker(); 
 
         int idx = 0;
         int nrRecipes = Global.Data.recipes.Count;
@@ -87,6 +92,7 @@ public partial class EditRecipe : ContentPage
         oldRecipe.Ingredients = newIngr;
         oldRecipe.enDiff = newDiff;
         oldRecipe.enSpeed = newSpeed;
+        oldRecipe.Tags = newTag;
 
         await DisplayAlert($"{newTitle} ändrad", null, "OK");
         Global.SerilizeJson();
@@ -94,7 +100,6 @@ public partial class EditRecipe : ContentPage
         await Shell.Current.GoToAsync("//MainPage");
 
     }
-
     private enSpeedDish? NewSpeedEnum()
     {
         enSpeedDish speed;
@@ -139,6 +144,89 @@ public partial class EditRecipe : ContentPage
         {
             diff = enDifficultyDish.Komplicerad;
             return diff;
+        }
+        return null;
+    }
+    private void CheckRadioButtons(Recipes recept)
+    {
+        if (recept.enDiff == enDifficultyDish.Enkel) EditDiffEnkel.IsChecked = true;
+        if (recept.enDiff == enDifficultyDish.Medium) EditDiffMedium.IsChecked = true;
+        if (recept.enDiff == enDifficultyDish.Komplicerad) EditDiffKomplicerad.IsChecked = true;
+
+        if (recept.enSpeed == enSpeedDish.Turbo) EditSpeedTurbo.IsChecked = true;
+        if (recept.enSpeed == enSpeedDish.Snabb) EditSpeedSnabb.IsChecked = true;
+        if (recept.enSpeed == enSpeedDish.Medium) EditSpeedMedium.IsChecked = true;
+        if (recept.enSpeed == enSpeedDish.Långkok) EditSpeedLångkok.IsChecked = true;
+    }
+    private string TagsToString(Recipes recept)
+    {
+        string tagg = "";
+        foreach (var t in recept.Tags)
+        {
+            tagg += $"{t}, ";
+        }
+        return tagg.TrimEnd();
+    }
+    /// <summary>
+    /// Splits the string into elements for the list of tags
+    /// </summary>
+    /// <returns></returns>
+    private List<string> NewTagChecker()
+    {
+        //Filters out whitespace and commas from tags.
+        if (EditTag.Text.Contains(",") && EditTag.Text.Contains(' '))
+        {
+            List<string> newTags = new List<string>();
+
+            string[] NT = EditTag.Text.Split(",");
+            string[] PH;
+
+            foreach (var t in NT)
+            {
+                if (t.Contains(" "))
+                {
+                    if (t != "")
+                    {
+                        PH = t.Split(' ');
+                        foreach (var p in PH)
+                        {
+                            if (p != "")
+                            {
+                                p.TrimStart().TrimEnd();
+                                newTags.Add(p);
+                             }
+                        }
+                    }
+                }
+                else newTags.Add(t.Trim());
+            }
+            return newTags;
+        }
+        if (EditTag.Text.Contains(','))
+        {
+            List<string> newTags = new List<string>();
+            var tags = EditTag.Text.Split(",");
+            foreach (var s in tags)
+            {
+                if (s != "")
+                {
+                    newTags.Add(s.Trim());
+                }
+            }
+            return newTags;
+        }
+        if (EditTag.Text.Contains(' '))
+        {
+            List<string> newTags = new List<string>();
+            var tags = EditTag.Text.Split(" ");
+            foreach (var s in tags)
+            {
+                if (s != "")
+                {
+                    newTags.Add(s.Trim());
+                }
+            }
+            return newTags;
         }
         return null;
     }

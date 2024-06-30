@@ -4,20 +4,26 @@
              x:Class="Kokboken.Views.ShowSingleRecipe">
     <!--Padding="Vänster, Upp, Höger, Ner"-->
     <ScrollView>
-        <VerticalStackLayout>
-            <HorizontalStackLayout Margin="5,0,0,0">
-                <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" 
-                        VerticalOptions="End" HorizontalOptions="Start" />
-                <HorizontalStackLayout Padding="25,0,0,0">
-                    <Button Text="Slumpa recept" Clicked="Button_Clicked_1" WidthRequest="150"
-                            VerticalOptions="End" HorizontalOptions="Start"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Padding="25,0,0,0">
-                    <Button Text="Redigera recept" Clicked="Button_Clicked_2" WidthRequest="150"
-                            VerticalOptions="End" HorizontalOptions="Center" />
-                </HorizontalStackLayout>
-               
-            </HorizontalStackLayout>
+        <VerticalStackLayout >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Padding="5" Grid.Column="0">
+                    <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" 
+                            VerticalOptions="End" HorizontalOptions="Start" Margin="5"/>
+                    <Button Text="Slumpa recept" Clicked="Button_Clicked_rnd" WidthRequest="150"
+                            VerticalOptions="End" HorizontalOptions="Start" Margin="5"/>
+                </StackLayout>
+                <Button Text="Redigera recept" Clicked="Button_Clicked_edit" WidthRequest="150" Grid.Column="1" 
+                        HorizontalOptions="Start" HeightRequest="40" VerticalOptions="Start"
+                        Padding="5" Margin="20,10, 10, 10"/>
+                <Button Text="Ta bort recept" Clicked="Button_Clicked_rmv" WidthRequest="150" HeightRequest="40"
+                        BackgroundColor="DarkRed" TextColor="Black" FontSize="15" Grid.Column="2"
+                        VerticalOptions="Start" Margin="10, 10, 20, 10" />
+            </Grid>
             <ListView x:Name="SingleRecipePage" IsGroupingEnabled="True" HasUnevenRows="true">
                 <ListView.GroupHeaderTemplate>
                     <DataTemplate>
@@ -33,30 +39,64 @@
                                 <Label HorizontalOptions="Center" 
                                        Text="{Binding Title}" 
                                        FontSize="25" TextColor="Aqua"/>
-                                <VerticalStackLayout Margin="5" HorizontalOptions="Start" BackgroundColor="Black" Opacity="0.9">
-                                    <HorizontalStackLayout Padding="5">
-                                        <Label Text="Hastighet:" FontSize="15" TextColor="NavajoWhite"/>
-                                        <Label Text="{Binding enSpeed}" FontSize="15" TextColor="NavajoWhite"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <VerticalStackLayout Margin="5" HorizontalOptions="Start" BackgroundColor="Black" Opacity="0.6" MaximumWidthRequest="150" Grid.Column="0">
+                                        <VerticalStackLayout  >
+                                            <Label Text="Hastighet:" FontSize="15" TextColor="NavajoWhite" TextDecorations="Underline" Padding="0,0,0,5"/>
+                                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="PaleGoldenrod" Padding="0" >
+                                                <Label Text="{Binding enSpeed}" FontSize="12" TextColor="Black" Padding="5,0,0,0"/>
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout  >
+                                            <Label Text="Svårighetsgrad:" FontSize="15" TextColor="NavajoWhite" TextDecorations="Underline" Padding="0,0,0,5"/>
+                                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="PaleGoldenrod" Padding="0">
+                                                <Label Text="{Binding enDiff}" FontSize="12" TextColor="Black" Padding="5,0,0,0" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Margin="0,5,0,0">
+                                            <Label Text="Taggar" FontSize="20" TextColor="NavajoWhite" TextDecorations="Underline"/>
+                                            <ListView ItemsSource="{Binding Tags}">
+                                                <ListView.GroupHeaderTemplate>
+                                                    <DataTemplate>
+                                                        <ViewCell>
+                                                            <!--Only here to avoid visual glitches-->
+                                                        </ViewCell>
+                                                    </DataTemplate>
+                                                </ListView.GroupHeaderTemplate>
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <ViewCell>
+                                                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="PaleGoldenrod" Padding="0">
+                                                                <Label Text="{Binding .}" FontSize="12" TextColor="Black" Padding="5"/>
+                                                            </Frame>
+                                                        </ViewCell>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                    <HorizontalStackLayout HorizontalOptions="Center" Padding="5,0,10,0" Grid.Column="1" MinimumHeightRequest="100" VerticalOptions="Start" >
+                                        <Frame CornerRadius="15" HasShadow="True" BackgroundColor="PaleGoldenrod" Padding="0">
+                                            <Label  Text="{Binding Ingredients}" FontSize="20"  MinimumWidthRequest="200" TextColor="Black" Opacity="0.9"
+                                                    Padding="10,0,0,0"/>
+                                        </Frame>
+                                        <!--<BoxView BackgroundColor="Black" WidthRequest="2" Margin="10,0,10,0"/>-->
+                                        <Frame CornerRadius="15" HasShadow="False" BackgroundColor="PaleGoldenrod" Padding="0">
+                                            <Label  Text="{Binding Description}" FontSize="20"  MinimumWidthRequest="200" Margin="10,0,0,0" Padding="0,0,5,0"
+                                                    TextColor="Black" Opacity="0.9"/>
+                                        </Frame>
                                     </HorizontalStackLayout>
-                                    <HorizontalStackLayout Padding="5">
-                                        <Label Text="Svårighetsgrad:" FontSize="15" TextColor="NavajoWhite"/>
-                                        <Label Text="{Binding enDiff}" FontSize="15" TextColor="NavajoWhite"/>
-                                    </HorizontalStackLayout>
-                                </VerticalStackLayout>
-                                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="5,0,10,0" >
-                                   
-                                    <Label  Text="{Binding Ingredients}" FontSize="20" HorizontalOptions="Start" WidthRequest="200" TextColor="GhostWhite"
-                                           BackgroundColor="Black" Opacity="0.9"/>
-                                    <Label  Text="{Binding Description}" FontSize="20" HorizontalOptions="End" Margin="10,0,0,0" TextColor="GhostWhite"
-                                           BackgroundColor="Black" Opacity="0.9"/>
-                                    
-                                </HorizontalStackLayout>
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-          
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

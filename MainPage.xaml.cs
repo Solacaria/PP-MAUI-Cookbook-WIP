@@ -10,37 +10,44 @@ namespace Kokboken
             InitializeComponent();
             if (File.Exists(Global.fname("Receptlista.json"))) Global.Data.recipes = Global.DeserializeJson();
         }
-
         private void exit_Clicked(object sender, EventArgs e)
         {
             Global.SerilizeJson();
             Environment.Exit(0 );
         }
-
-        private async void rmv_recipe_Clicked(object sender, EventArgs e)
-        {
-           // await Shell.Current.GoToAsync("//RemoveRecipe");
-        }
-
         private async void show_recipe_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//ShowAllRecipes");
+            var list = Global.Data.recipes;
+            if (list == null || list.Count == 0)
+            {
+                await DisplayAlert("Receptlistan är tom", "Finns inga recept att visa", "OK");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync("//ShowAllRecipes");
+            }
         }
-
         private async void add_recipe_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//AddRecipe");
         }
-
         private async void rnd_recipe_Clicked(object sender, EventArgs e)
         {
-            SlumpasIgen:
-            Global.RandomRecipe();
-            string result = await ShowRandomizedRecipe();
+            var list = Global.Data.recipes;
+            if (list == null || list.Count == 0)
+            {
+                await DisplayAlert("Receptlistan är tom", "Finns inget att slumpa fram", "OK");
+            }
+            else
+            {
+                SlumpasIgen:
+                Global.RandomRecipe();
+                string result = await ShowRandomizedRecipe();
 
-            if (result == "Ja") await Shell.Current.GoToAsync("//ShowSingleRecipe");
-            if (result == "Slumpa igen") goto SlumpasIgen;
-            return;
+                if (result == "Ja") await Shell.Current.GoToAsync("//ShowSingleRecipe");
+                if (result == "Slumpa igen") goto SlumpasIgen;
+                return;
+            }
         }
         private async Task<string> ShowRandomizedRecipe()
         {
@@ -48,5 +55,4 @@ namespace Kokboken
             return result;
         }
     }
-
 }

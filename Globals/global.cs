@@ -1,4 +1,5 @@
 ﻿using Kokboken.ViewModels;
+using Kokboken.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,12 +46,21 @@ namespace Kokboken.Globals
         }
         public static List<Recipes> DeserializeJson()
         {
+            
             List<Recipes>? recipe;
             using (Stream s = File.OpenRead(fname(Data._fileName)))
             using (TextReader reader = new StreamReader(s))
             {
                 var sjson = reader.ReadToEnd();
-                recipe = JsonSerializer.Deserialize<List<Recipes>>(sjson);
+                if (!string.IsNullOrEmpty(sjson))
+                {
+                    recipe = JsonSerializer.Deserialize<List<Recipes>>(sjson);
+                }
+                else
+                {
+                    recipe = null;
+                }
+                
             }
             return recipe;
         }
@@ -61,7 +71,5 @@ namespace Kokboken.Globals
             if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
             return Path.Combine(documentPath, filename);
         }
-
     }
-
 }

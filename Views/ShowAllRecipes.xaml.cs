@@ -14,9 +14,9 @@ public partial class ShowAllRecipes : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+
         var groupedlist = Global.Data.recipes.ToList().GroupBy(z => z.Title);
         GroupedRecipes.ItemsSource = groupedlist;
-
     }
     private async void Button_Clicked(object sender, EventArgs e)
     {
