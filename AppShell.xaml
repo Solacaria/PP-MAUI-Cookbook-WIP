@@ -23,5 +23,8 @@
     <ShellContent 
         ContentTemplate="{DataTemplate views:EditRecipe}"
         Route="EditRecipe" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:SearchRecipe}"
+        Route="SearchRecipe" />
 
 </Shell>

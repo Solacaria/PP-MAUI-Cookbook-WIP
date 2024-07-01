@@ -30,10 +30,6 @@ public partial class ShowAllRecipes : ContentPage
     private async void GroupedRecipes_ItemTapped(object sender, ItemTappedEventArgs e)
     {
         Recipes recept = (Recipes)e.Item;
-        List<Recipes> recipes = new List<Recipes>();
-
-        if (recipes.Count > 0) recipes.Clear(); //Making sure the list doesnt get infinately big during 1 session. 
-        recipes.Add(recept);
 
         string result = await DisplayActionSheet(recept.Title, "Ja", "Nej", null, "Vill du gå till receptet?");
         if (result == "Nej") return;
@@ -43,11 +39,10 @@ public partial class ShowAllRecipes : ContentPage
             if (Global.Data.rndRecipe.Count > 0)
             {
                 //Sets the random recipe holder to the clicked recipe.
-                Global.Data.rndRecipe.Remove(Global.Data.rndRecipe[0]);
+                Global.Data.rndRecipe.RemoveAt(0);
             }
-            Global.Data.rndRecipe.Add(recipes[0]);
+            Global.Data.rndRecipe.Add(recept);
             await Shell.Current.GoToAsync("//ShowSingleRecipe");
         }
     }
-    //TODO Lägg till sökfunktion i listan. Kanske även specifik sortering?
 }

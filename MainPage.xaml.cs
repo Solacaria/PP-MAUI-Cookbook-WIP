@@ -1,5 +1,6 @@
 ﻿using Kokboken.Globals;
 using Kokboken.ViewModels;
+using Kokboken.Views;
 using System.Security.Cryptography.X509Certificates;
 namespace Kokboken
 {
@@ -9,6 +10,8 @@ namespace Kokboken
         {
             InitializeComponent();
             if (File.Exists(Global.fname("Receptlista.json"))) Global.Data.recipes = Global.DeserializeJson();
+            //TODO Fyll på med 5st bas-recept
+            //if (Global.Data.recipes == null) AddBaseRecipe();
         }
         private void exit_Clicked(object sender, EventArgs e)
         {
@@ -53,6 +56,40 @@ namespace Kokboken
         {
             string result = await DisplayActionSheet($"{Global.Data.rndRecipe[0].Title}\nVill du gå till receptet?", "Avbryt",null,  "Slumpa igen", "Ja");
             return result;
+        }
+
+        private async void search_recipe_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//SearchRecipe");
+        }
+        private void AddBaseRecipe()
+        {
+
+            Global.Data.recipes.Add(new Recipes
+            {
+
+            });
+            Global.Data.recipes.Add(new Recipes
+            {
+
+            });
+            Global.Data.recipes.Add(new Recipes
+            {
+
+            });
+            Global.Data.recipes.Add(new Recipes
+            {
+
+            });
+            Global.Data.recipes.Add(new Recipes
+            {
+
+            });
+            Global.Data.recipes.Add(new Recipes
+            {
+
+            });
+
         }
     }
 }

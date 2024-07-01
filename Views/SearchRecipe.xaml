@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kokboken.Views.SearchRecipe"
+             Title="SearchRecipe">
+    <StackLayout>
+        <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" />
+        <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+            <VerticalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Entry x:Name="search_input" Placeholder="Sök efter recept" PlaceholderColor="White" MinimumWidthRequest="150" MaximumWidthRequest="300" 
+                           BackgroundColor="Teal" />
+                    <ImageButton x:Name="search_button" Source="search3x.png" IsVisible="True" HeightRequest="35" WidthRequest="35" Margin="5,0,0,0" Clicked="search_button_Clicked"
+                                    Aspect="AspectFit" BackgroundColor="NavajoWhite" CornerRadius="10"/>
+                </HorizontalStackLayout>
+                <Label Text="Alla Recept" TextColor="White" FontSize="35" HorizontalOptions="Center"/>
+                <ListView x:Name="SearchRecipePage" IsGroupingEnabled="true" HasUnevenRows="true" ItemTapped="SearchRecipePage_ItemTapped">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!--Only here to avoid visual glitches-->
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center" >
+                                        <Label Text="Maträtt:" FontSize="25" TextColor="FloralWhite" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Title} " FontSize="25" TextColor="FloralWhite"/>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center">
+                                        <Label Text="Svårighet:" FontSize="20" TextColor="NavajoWhite"/>
+                                        <Label Text="{Binding enDiff} " FontSize="20" TextColor="NavajoWhite" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center" >
+                                        <Label Text="Snabbhet:" FontSize="20" TextColor="NavajoWhite"/>
+                                        <Label Text="{Binding enSpeed} " FontSize="20" TextColor="NavajoWhite" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

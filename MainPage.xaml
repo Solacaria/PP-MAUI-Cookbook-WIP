@@ -18,6 +18,10 @@
                         WidthRequest="200" Margin="25" FontSize="20" />
             </HorizontalStackLayout>
         <HorizontalStackLayout>
+            <Button x:Name="search_recipe" BackgroundColor="LightSeaGreen" Text="Sök Recept" Clicked="search_recipe_Clicked"
+                    WidthRequest="200" Margin="25" FontSize="20"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
             <Button x:Name="exit" BackgroundColor="LightSeaGreen" Text="Avsluta Program" Clicked="exit_Clicked" 
                         WidthRequest="200" Margin="25" FontSize="20" />
         </HorizontalStackLayout>
