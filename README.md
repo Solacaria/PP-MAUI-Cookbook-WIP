@@ -15,7 +15,6 @@
 <h2>TODO</h2>
 <ul>
   <li>Add a search feature</li>
-  <li>Add a "remove recipe" function</li>
   <li>Make it not look bad</li>
   <li>Sign in via gmail? Save recipes on cloud? </li>
 </ul>
@@ -23,4 +22,6 @@
 <h2>Fixed</h2>
 <ul>
   <li>26/6/2024 - Added "edit recipe" function.</li>
+  <li>28/6/2024 - Added "remove recipe" function.</li>
+  <li>30/6/2024 - Added tags, updated Edit/Add-recipe functions to accomodate the new change.</li>
 </ul>
