@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kokboken.Views.SearchRecipe"
-             Title="SearchRecipe">
+             BackgroundImageSource="background2.jpg">
     <StackLayout>
-        <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" />
+        <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" Margin="10"/>
         <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
             <VerticalStackLayout>
                 <HorizontalStackLayout HorizontalOptions="Center">

@@ -2,13 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kokboken.Views.ShowAllRecipes"
-             BackgroundImageSource="background.jpg">
+             BackgroundImageSource="background2.jpg">
     <!--Padding="Vänster, Upp, Höger, Ner"-->
     <StackLayout>
-        <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" />
+        <Button Text="Huvudmeny" Clicked="Button_Clicked" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" Margin="10"/>
         <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
             <VerticalStackLayout>
-                <Label Text="Alla Recept" TextColor="Teal" FontSize="35" HorizontalOptions="Center"/>
+                <StackLayout BackgroundColor="GhostWhite" MaximumWidthRequest="200" >
+                    <Label Text="Alla Recept" TextColor="Teal" FontSize="35" HorizontalOptions="Center" />
+                </StackLayout>
                 <ListView x:Name="GroupedRecipes" IsGroupingEnabled="true" HasUnevenRows="true" ItemTapped="GroupedRecipes_ItemTapped">
                     <ListView.GroupHeaderTemplate>
                         <DataTemplate>
@@ -20,7 +22,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <VerticalStackLayout>
+                                <VerticalStackLayout BackgroundColor="DarkSlateGray" MinimumWidthRequest="200" MaximumWidthRequest="450" >
                                     <HorizontalStackLayout Margin="5" Padding="5" HorizontalOptions="Center" >
                                         <Label Text="Maträtt:" FontSize="25" TextColor="FloralWhite" HorizontalOptions="Start"/>
                                         <Label Text="{Binding Title} " FontSize="25" TextColor="FloralWhite"/>

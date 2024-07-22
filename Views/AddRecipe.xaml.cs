@@ -196,7 +196,8 @@ public partial class AddRecipe : ContentPage
             }
             return newTags;
         }
-            return null;
+        List<string> tagList =  new List<string> { AddTag.Text };
+        return tagList;
     }
     /// <summary>
     /// Clears the fields.

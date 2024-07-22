@@ -20,7 +20,6 @@ public partial class ShowSingleRecipe : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        BackgroundImageSource = "background.jpg";
         var recept = Global.Data.rndRecipe.GroupBy(x => x.Title);
         SingleRecipePage.ItemsSource = recept;
     }

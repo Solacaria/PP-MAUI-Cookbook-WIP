@@ -15,7 +15,6 @@ public partial class SearchRecipe : ContentPage
     }
     protected override void OnAppearing()
     {
-        BackgroundImageSource = "background.jpg";
         search_input.Text = string.Empty;
         SearchRecipePage.ItemsSource = null;
 
@@ -46,10 +45,15 @@ public partial class SearchRecipe : ContentPage
         }
     }
 
-    private void search_button_Clicked(object sender, EventArgs e)
+    private async void search_button_Clicked(object sender, EventArgs e)
     {
         string sökOrd = search_input.Text; 
         var mainList = Global.Data.recipes;
+        if (mainList == null || mainList.Count == 0)
+        {
+            await DisplayAlert("Receptlistan är tom", "Finns inga recept att söka efter", "OK");
+            return;
+        }
 
         //Clears the list of any elements. Avoiding duplicates and a growing list
         if (SearchedRecipes != null || SearchedRecipes?.Count > 0) SearchedRecipes.Clear();

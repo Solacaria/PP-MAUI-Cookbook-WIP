@@ -19,7 +19,6 @@ public partial class EditRecipe : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        BackgroundImageSource = "background.jpg";
         
         var recept = Global.Data.rndRecipe[0];
 

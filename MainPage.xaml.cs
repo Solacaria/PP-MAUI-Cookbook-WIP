@@ -2,6 +2,7 @@
 using Kokboken.ViewModels;
 using Kokboken.Views;
 using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 namespace Kokboken
 {
     public partial class MainPage : ContentPage
@@ -10,8 +11,7 @@ namespace Kokboken
         {
             InitializeComponent();
             if (File.Exists(Global.fname("Receptlista.json"))) Global.Data.recipes = Global.DeserializeJson();
-            //TODO Fyll på med 5st bas-recept
-            //if (Global.Data.recipes == null) AddBaseRecipe();
+            Debug.WriteLine("Framme");
         }
         private void exit_Clicked(object sender, EventArgs e)
         {
@@ -61,35 +61,6 @@ namespace Kokboken
         private async void search_recipe_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//SearchRecipe");
-        }
-        private void AddBaseRecipe()
-        {
-
-            Global.Data.recipes.Add(new Recipes
-            {
-
-            });
-            Global.Data.recipes.Add(new Recipes
-            {
-
-            });
-            Global.Data.recipes.Add(new Recipes
-            {
-
-            });
-            Global.Data.recipes.Add(new Recipes
-            {
-
-            });
-            Global.Data.recipes.Add(new Recipes
-            {
-
-            });
-            Global.Data.recipes.Add(new Recipes
-            {
-
-            });
-
         }
     }
 }

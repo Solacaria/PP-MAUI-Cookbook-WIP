@@ -47,7 +47,7 @@ namespace Kokboken.Globals
         public static List<Recipes> DeserializeJson()
         {
             
-            List<Recipes>? recipe;
+            List<Recipes>? recipe = new List<Recipes>();
             using (Stream s = File.OpenRead(fname(Data._fileName)))
             using (TextReader reader = new StreamReader(s))
             {
@@ -58,9 +58,8 @@ namespace Kokboken.Globals
                 }
                 else
                 {
-                    recipe = null;
+                    return null;
                 }
-                
             }
             return recipe;
         }
